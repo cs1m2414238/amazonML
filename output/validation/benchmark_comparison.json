@@ -1,0 +1,621 @@
+{
+  "metadata": {
+    "sample_name": "validation_smoke_500",
+    "sample_size": 20,
+    "entity_ids_sha256": "456257146f58e284a799374c9b2ba1fdab5ea7380f6031683ba369b724329f3b",
+    "index_path": "H:\\Amazon_ML_Work\\output\\step5\\indices.db",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+    "python_version": "3.13.14",
+    "cpu_count": 8,
+    "timestamp": "2026-09-27 00:13:05"
+  },
+  "budgets_evaluated": [
+    16,
+    32,
+    64,
+    128,
+    256
+  ],
+  "results": {
+    "optimized": {
+      "retriever": "Optimized (OptimizedCandidateGenerator)",
+      "query_count": 20,
+      "runtime_seconds": 16.36,
+      "queries_per_second": 1.22,
+      "peak_rss_mb": 579.4,
+      "budgets": {
+        "B_16": {
+          "representative_metrics": {
+            "total_queries": 20,
+            "non_singleton_queries": 19,
+            "singleton_queries": 1,
+            "total_ground_truth_pairs": 70,
+            "retrieved_true_pairs": 68,
+            "pair_level_recall": 0.9714,
+            "complete_match_set_recall": 0.8947,
+            "source2_recall": 0.9706,
+            "source3_recall": 0.9722,
+            "candidate_counts": {
+              "total_retrieved": 320,
+              "mean": 16.0,
+              "median": 16.0,
+              "p90": 16,
+              "p95": 16,
+              "p99": 16,
+              "min": 16,
+              "max": 16
+            },
+            "singleton_behavior": {
+              "count": 1,
+              "mean_candidates": 16.0,
+              "median_candidates": 16.0,
+              "p95_candidates": 16,
+              "zero_candidate_rate": 0.0
+            },
+            "reduction_ratio": 0.99999845,
+            "efficiency": {
+              "runtime_seconds": 16.36,
+              "queries_per_second": 1.22,
+              "latency_stats": {
+                "mean_seconds": 0.817984,
+                "median_seconds": 0.719887,
+                "p90_seconds": 1.600803,
+                "p95_seconds": 1.962005,
+                "p99_seconds": 2.238809,
+                "max_seconds": 2.30801
+              },
+              "peak_rss_mb": 579.4
+            }
+          },
+          "diagnostic_strata": {
+            "multi_2_4": {
+              "entity_count": 12,
+              "non_singleton_count": 12,
+              "total_true_pairs": 35,
+              "pair_level_recall": 0.9429,
+              "complete_match_set_recall": 0.8333,
+              "average_candidates": 16.0
+            },
+            "country_us": {
+              "entity_count": 15,
+              "non_singleton_count": 14,
+              "total_true_pairs": 55,
+              "pair_level_recall": 0.9636,
+              "complete_match_set_recall": 0.8571,
+              "average_candidates": 16.0
+            },
+            "s3_only": {
+              "entity_count": 4,
+              "non_singleton_count": 4,
+              "total_true_pairs": 8,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 16.0
+            },
+            "multi_5_plus": {
+              "entity_count": 6,
+              "non_singleton_count": 6,
+              "total_true_pairs": 34,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 16.0
+            },
+            "both_sources": {
+              "entity_count": 13,
+              "non_singleton_count": 13,
+              "total_true_pairs": 59,
+              "pair_level_recall": 0.9661,
+              "complete_match_set_recall": 0.8462,
+              "average_candidates": 16.0
+            },
+            "one_match": {
+              "entity_count": 1,
+              "non_singleton_count": 1,
+              "total_true_pairs": 1,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 16.0
+            },
+            "country_india": {
+              "entity_count": 5,
+              "non_singleton_count": 5,
+              "total_true_pairs": 15,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 16.0
+            },
+            "s2_only": {
+              "entity_count": 2,
+              "non_singleton_count": 2,
+              "total_true_pairs": 3,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 16.0
+            },
+            "singleton": {
+              "entity_count": 1,
+              "non_singleton_count": 0,
+              "total_true_pairs": 0,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 16.0
+            }
+          }
+        },
+        "B_32": {
+          "representative_metrics": {
+            "total_queries": 20,
+            "non_singleton_queries": 19,
+            "singleton_queries": 1,
+            "total_ground_truth_pairs": 70,
+            "retrieved_true_pairs": 70,
+            "pair_level_recall": 1.0,
+            "complete_match_set_recall": 1.0,
+            "source2_recall": 1.0,
+            "source3_recall": 1.0,
+            "candidate_counts": {
+              "total_retrieved": 640,
+              "mean": 32.0,
+              "median": 32.0,
+              "p90": 32,
+              "p95": 32,
+              "p99": 32,
+              "min": 32,
+              "max": 32
+            },
+            "singleton_behavior": {
+              "count": 1,
+              "mean_candidates": 32.0,
+              "median_candidates": 32.0,
+              "p95_candidates": 32,
+              "zero_candidate_rate": 0.0
+            },
+            "reduction_ratio": 0.9999969,
+            "efficiency": {
+              "runtime_seconds": 16.36,
+              "queries_per_second": 1.22,
+              "latency_stats": {
+                "mean_seconds": 0.817984,
+                "median_seconds": 0.719887,
+                "p90_seconds": 1.600803,
+                "p95_seconds": 1.962005,
+                "p99_seconds": 2.238809,
+                "max_seconds": 2.30801
+              },
+              "peak_rss_mb": 579.4
+            }
+          },
+          "diagnostic_strata": {
+            "multi_2_4": {
+              "entity_count": 12,
+              "non_singleton_count": 12,
+              "total_true_pairs": 35,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 32.0
+            },
+            "country_us": {
+              "entity_count": 15,
+              "non_singleton_count": 14,
+              "total_true_pairs": 55,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 32.0
+            },
+            "s3_only": {
+              "entity_count": 4,
+              "non_singleton_count": 4,
+              "total_true_pairs": 8,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 32.0
+            },
+            "multi_5_plus": {
+              "entity_count": 6,
+              "non_singleton_count": 6,
+              "total_true_pairs": 34,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 32.0
+            },
+            "both_sources": {
+              "entity_count": 13,
+              "non_singleton_count": 13,
+              "total_true_pairs": 59,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 32.0
+            },
+            "one_match": {
+              "entity_count": 1,
+              "non_singleton_count": 1,
+              "total_true_pairs": 1,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 32.0
+            },
+            "country_india": {
+              "entity_count": 5,
+              "non_singleton_count": 5,
+              "total_true_pairs": 15,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 32.0
+            },
+            "s2_only": {
+              "entity_count": 2,
+              "non_singleton_count": 2,
+              "total_true_pairs": 3,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 32.0
+            },
+            "singleton": {
+              "entity_count": 1,
+              "non_singleton_count": 0,
+              "total_true_pairs": 0,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 32.0
+            }
+          }
+        },
+        "B_64": {
+          "representative_metrics": {
+            "total_queries": 20,
+            "non_singleton_queries": 19,
+            "singleton_queries": 1,
+            "total_ground_truth_pairs": 70,
+            "retrieved_true_pairs": 70,
+            "pair_level_recall": 1.0,
+            "complete_match_set_recall": 1.0,
+            "source2_recall": 1.0,
+            "source3_recall": 1.0,
+            "candidate_counts": {
+              "total_retrieved": 1280,
+              "mean": 64.0,
+              "median": 64.0,
+              "p90": 64,
+              "p95": 64,
+              "p99": 64,
+              "min": 64,
+              "max": 64
+            },
+            "singleton_behavior": {
+              "count": 1,
+              "mean_candidates": 64.0,
+              "median_candidates": 64.0,
+              "p95_candidates": 64,
+              "zero_candidate_rate": 0.0
+            },
+            "reduction_ratio": 0.9999938,
+            "efficiency": {
+              "runtime_seconds": 16.36,
+              "queries_per_second": 1.22,
+              "latency_stats": {
+                "mean_seconds": 0.817984,
+                "median_seconds": 0.719887,
+                "p90_seconds": 1.600803,
+                "p95_seconds": 1.962005,
+                "p99_seconds": 2.238809,
+                "max_seconds": 2.30801
+              },
+              "peak_rss_mb": 579.4
+            }
+          },
+          "diagnostic_strata": {
+            "multi_2_4": {
+              "entity_count": 12,
+              "non_singleton_count": 12,
+              "total_true_pairs": 35,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 64.0
+            },
+            "country_us": {
+              "entity_count": 15,
+              "non_singleton_count": 14,
+              "total_true_pairs": 55,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 64.0
+            },
+            "s3_only": {
+              "entity_count": 4,
+              "non_singleton_count": 4,
+              "total_true_pairs": 8,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 64.0
+            },
+            "multi_5_plus": {
+              "entity_count": 6,
+              "non_singleton_count": 6,
+              "total_true_pairs": 34,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 64.0
+            },
+            "both_sources": {
+              "entity_count": 13,
+              "non_singleton_count": 13,
+              "total_true_pairs": 59,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 64.0
+            },
+            "one_match": {
+              "entity_count": 1,
+              "non_singleton_count": 1,
+              "total_true_pairs": 1,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 64.0
+            },
+            "country_india": {
+              "entity_count": 5,
+              "non_singleton_count": 5,
+              "total_true_pairs": 15,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 64.0
+            },
+            "s2_only": {
+              "entity_count": 2,
+              "non_singleton_count": 2,
+              "total_true_pairs": 3,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 64.0
+            },
+            "singleton": {
+              "entity_count": 1,
+              "non_singleton_count": 0,
+              "total_true_pairs": 0,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 64.0
+            }
+          }
+        },
+        "B_128": {
+          "representative_metrics": {
+            "total_queries": 20,
+            "non_singleton_queries": 19,
+            "singleton_queries": 1,
+            "total_ground_truth_pairs": 70,
+            "retrieved_true_pairs": 70,
+            "pair_level_recall": 1.0,
+            "complete_match_set_recall": 1.0,
+            "source2_recall": 1.0,
+            "source3_recall": 1.0,
+            "candidate_counts": {
+              "total_retrieved": 2560,
+              "mean": 128.0,
+              "median": 128.0,
+              "p90": 128,
+              "p95": 128,
+              "p99": 128,
+              "min": 128,
+              "max": 128
+            },
+            "singleton_behavior": {
+              "count": 1,
+              "mean_candidates": 128.0,
+              "median_candidates": 128.0,
+              "p95_candidates": 128,
+              "zero_candidate_rate": 0.0
+            },
+            "reduction_ratio": 0.9999876,
+            "efficiency": {
+              "runtime_seconds": 16.36,
+              "queries_per_second": 1.22,
+              "latency_stats": {
+                "mean_seconds": 0.817984,
+                "median_seconds": 0.719887,
+                "p90_seconds": 1.600803,
+                "p95_seconds": 1.962005,
+                "p99_seconds": 2.238809,
+                "max_seconds": 2.30801
+              },
+              "peak_rss_mb": 579.4
+            }
+          },
+          "diagnostic_strata": {
+            "multi_2_4": {
+              "entity_count": 12,
+              "non_singleton_count": 12,
+              "total_true_pairs": 35,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 128.0
+            },
+            "country_us": {
+              "entity_count": 15,
+              "non_singleton_count": 14,
+              "total_true_pairs": 55,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 128.0
+            },
+            "s3_only": {
+              "entity_count": 4,
+              "non_singleton_count": 4,
+              "total_true_pairs": 8,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 128.0
+            },
+            "multi_5_plus": {
+              "entity_count": 6,
+              "non_singleton_count": 6,
+              "total_true_pairs": 34,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 128.0
+            },
+            "both_sources": {
+              "entity_count": 13,
+              "non_singleton_count": 13,
+              "total_true_pairs": 59,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 128.0
+            },
+            "one_match": {
+              "entity_count": 1,
+              "non_singleton_count": 1,
+              "total_true_pairs": 1,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 128.0
+            },
+            "country_india": {
+              "entity_count": 5,
+              "non_singleton_count": 5,
+              "total_true_pairs": 15,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 128.0
+            },
+            "s2_only": {
+              "entity_count": 2,
+              "non_singleton_count": 2,
+              "total_true_pairs": 3,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 128.0
+            },
+            "singleton": {
+              "entity_count": 1,
+              "non_singleton_count": 0,
+              "total_true_pairs": 0,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 128.0
+            }
+          }
+        },
+        "B_256": {
+          "representative_metrics": {
+            "total_queries": 20,
+            "non_singleton_queries": 19,
+            "singleton_queries": 1,
+            "total_ground_truth_pairs": 70,
+            "retrieved_true_pairs": 70,
+            "pair_level_recall": 1.0,
+            "complete_match_set_recall": 1.0,
+            "source2_recall": 1.0,
+            "source3_recall": 1.0,
+            "candidate_counts": {
+              "total_retrieved": 5120,
+              "mean": 256.0,
+              "median": 256.0,
+              "p90": 256,
+              "p95": 256,
+              "p99": 256,
+              "min": 256,
+              "max": 256
+            },
+            "singleton_behavior": {
+              "count": 1,
+              "mean_candidates": 256.0,
+              "median_candidates": 256.0,
+              "p95_candidates": 256,
+              "zero_candidate_rate": 0.0
+            },
+            "reduction_ratio": 0.99997519,
+            "efficiency": {
+              "runtime_seconds": 16.36,
+              "queries_per_second": 1.22,
+              "latency_stats": {
+                "mean_seconds": 0.817984,
+                "median_seconds": 0.719887,
+                "p90_seconds": 1.600803,
+                "p95_seconds": 1.962005,
+                "p99_seconds": 2.238809,
+                "max_seconds": 2.30801
+              },
+              "peak_rss_mb": 579.4
+            }
+          },
+          "diagnostic_strata": {
+            "multi_2_4": {
+              "entity_count": 12,
+              "non_singleton_count": 12,
+              "total_true_pairs": 35,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 256.0
+            },
+            "country_us": {
+              "entity_count": 15,
+              "non_singleton_count": 14,
+              "total_true_pairs": 55,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 256.0
+            },
+            "s3_only": {
+              "entity_count": 4,
+              "non_singleton_count": 4,
+              "total_true_pairs": 8,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 256.0
+            },
+            "multi_5_plus": {
+              "entity_count": 6,
+              "non_singleton_count": 6,
+              "total_true_pairs": 34,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 256.0
+            },
+            "both_sources": {
+              "entity_count": 13,
+              "non_singleton_count": 13,
+              "total_true_pairs": 59,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 256.0
+            },
+            "one_match": {
+              "entity_count": 1,
+              "non_singleton_count": 1,
+              "total_true_pairs": 1,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 256.0
+            },
+            "country_india": {
+              "entity_count": 5,
+              "non_singleton_count": 5,
+              "total_true_pairs": 15,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 256.0
+            },
+            "s2_only": {
+              "entity_count": 2,
+              "non_singleton_count": 2,
+              "total_true_pairs": 3,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 256.0
+            },
+            "singleton": {
+              "entity_count": 1,
+              "non_singleton_count": 0,
+              "total_true_pairs": 0,
+              "pair_level_recall": 1.0,
+              "complete_match_set_recall": 1.0,
+              "average_candidates": 256.0
+            }
+          }
+        }
+      }
+    }
+  }
+}

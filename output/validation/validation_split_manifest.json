@@ -1,0 +1,37 @@
+{
+  "seed": 42,
+  "population_size": 2206821,
+  "smoke_sample": {
+    "size": 500,
+    "file": "validation_smoke_500.json",
+    "sha256": "456257146f58e284a799374c9b2ba1fdab5ea7380f6031683ba369b724329f3b",
+    "strata_distribution": {
+      "multi_2_4": 312,
+      "country_us": 321,
+      "s3_only": 52,
+      "multi_5_plus": 128,
+      "both_sources": 396,
+      "one_match": 29,
+      "country_india": 179,
+      "s2_only": 21,
+      "singleton": 31
+    }
+  },
+  "quality_sample": {
+    "size": 10000,
+    "file": "validation_quality_10000.json",
+    "sha256": "2e4741af4b903113e0b617620e9cebfd8084213c687518dade7b27061855fb78",
+    "strata_distribution": {
+      "multi_2_4": 6315,
+      "country_us": 5984,
+      "s3_only": 760,
+      "multi_5_plus": 2578,
+      "both_sources": 8068,
+      "one_match": 549,
+      "country_india": 4016,
+      "s2_only": 614,
+      "singleton": 558
+    }
+  },
+  "training_exclusion_policy": "Any future matching model (e.g., LightGBM / Hard-Negative Mining) MUST exclude all S1 entities present in these validation samples to prevent data leakage."
+}
