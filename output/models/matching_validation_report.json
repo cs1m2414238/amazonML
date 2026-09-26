@@ -1,0 +1,216 @@
+{
+  "metadata": {
+    "model_path": "C:\\Users\\Priyanshu Sharma\\Desktop\\Amazon ML\\Amazon_ML_Hackathon_Agent3\\output\\models\\lightgbm_matcher.txt",
+    "sample_path": "C:\\Users\\Priyanshu Sharma\\Desktop\\Amazon ML\\Amazon_ML_Hackathon_Agent3\\output\\validation\\validation_smoke_500.json",
+    "sample_size": 500,
+    "retrieval_budget": 64,
+    "optimal_threshold": 0.6,
+    "candidate_recall_ceiling": 0.9455,
+    "retrieval_time_seconds": 55.31,
+    "scoring_time_seconds": 21.55,
+    "prediction_qps": 6.51
+  },
+  "performance_metrics": {
+    "macro_f05": 0.9033,
+    "singleton_accuracy": 0.8387,
+    "pair_precision": 0.9467,
+    "pair_recall": 0.8457,
+    "pair_f05": 0.9246,
+    "average_predicted_matches": 3.11,
+    "total_queries": 500,
+    "singleton_queries": 31,
+    "non_singleton_queries": 469
+  },
+  "validation_checks": {
+    "duplicate_predictions_handled": 0,
+    "invalid_id_format_count": 0,
+    "candidate_subset_violations_count": 0,
+    "candidate_subset_violation_rate": 0.0
+  },
+  "diagnostic_strata": {
+    "multi_2_4": {
+      "entity_count": 312,
+      "macro_f05": 0.9073,
+      "pair_precision": 0.9391,
+      "pair_recall": 0.8473,
+      "singleton_accuracy": 1.0
+    },
+    "country_us": {
+      "entity_count": 321,
+      "macro_f05": 0.9304,
+      "pair_precision": 0.9601,
+      "pair_recall": 0.8797,
+      "singleton_accuracy": 0.8
+    },
+    "s3_only": {
+      "entity_count": 52,
+      "macro_f05": 0.8692,
+      "pair_precision": 0.8673,
+      "pair_recall": 0.8829,
+      "singleton_accuracy": 1.0
+    },
+    "multi_5_plus": {
+      "entity_count": 128,
+      "macro_f05": 0.9348,
+      "pair_precision": 0.9717,
+      "pair_recall": 0.8443,
+      "singleton_accuracy": 1.0
+    },
+    "both_sources": {
+      "entity_count": 396,
+      "macro_f05": 0.9162,
+      "pair_precision": 0.9566,
+      "pair_recall": 0.8421,
+      "singleton_accuracy": 1.0
+    },
+    "one_match": {
+      "entity_count": 29,
+      "macro_f05": 0.791,
+      "pair_precision": 0.8276,
+      "pair_recall": 0.8276,
+      "singleton_accuracy": 1.0
+    },
+    "country_india": {
+      "entity_count": 179,
+      "macro_f05": 0.8548,
+      "pair_precision": 0.9206,
+      "pair_recall": 0.7842,
+      "singleton_accuracy": 0.9091
+    },
+    "s2_only": {
+      "entity_count": 21,
+      "macro_f05": 0.8413,
+      "pair_precision": 0.9697,
+      "pair_recall": 0.8889,
+      "singleton_accuracy": 1.0
+    },
+    "singleton": {
+      "entity_count": 31,
+      "macro_f05": 0.8387,
+      "pair_precision": 0.0,
+      "pair_recall": 1.0,
+      "singleton_accuracy": 0.8387
+    }
+  },
+  "threshold_curve": [
+    {
+      "threshold": 0.05,
+      "macro_f05": 0.7144,
+      "pair_precision": 0.6813,
+      "pair_recall": 0.9369,
+      "singleton_accuracy": 0.129
+    },
+    {
+      "threshold": 0.1,
+      "macro_f05": 0.7817,
+      "pair_precision": 0.765,
+      "pair_recall": 0.9317,
+      "singleton_accuracy": 0.2581
+    },
+    {
+      "threshold": 0.2,
+      "macro_f05": 0.8391,
+      "pair_precision": 0.8359,
+      "pair_recall": 0.9203,
+      "singleton_accuracy": 0.4516
+    },
+    {
+      "threshold": 0.3,
+      "macro_f05": 0.8699,
+      "pair_precision": 0.8801,
+      "pair_recall": 0.9013,
+      "singleton_accuracy": 0.5484
+    },
+    {
+      "threshold": 0.4,
+      "macro_f05": 0.8827,
+      "pair_precision": 0.9098,
+      "pair_recall": 0.8801,
+      "singleton_accuracy": 0.5806
+    },
+    {
+      "threshold": 0.5,
+      "macro_f05": 0.8944,
+      "pair_precision": 0.9298,
+      "pair_recall": 0.8657,
+      "singleton_accuracy": 0.7097
+    },
+    {
+      "threshold": 0.6,
+      "macro_f05": 0.9033,
+      "pair_precision": 0.9467,
+      "pair_recall": 0.8457,
+      "singleton_accuracy": 0.8387
+    },
+    {
+      "threshold": 0.7,
+      "macro_f05": 0.8953,
+      "pair_precision": 0.9566,
+      "pair_recall": 0.8221,
+      "singleton_accuracy": 0.871
+    },
+    {
+      "threshold": 0.75,
+      "macro_f05": 0.8941,
+      "pair_precision": 0.9613,
+      "pair_recall": 0.8118,
+      "singleton_accuracy": 0.871
+    },
+    {
+      "threshold": 0.8,
+      "macro_f05": 0.8927,
+      "pair_precision": 0.9668,
+      "pair_recall": 0.8009,
+      "singleton_accuracy": 0.9032
+    },
+    {
+      "threshold": 0.85,
+      "macro_f05": 0.8878,
+      "pair_precision": 0.9756,
+      "pair_recall": 0.7785,
+      "singleton_accuracy": 0.9677
+    },
+    {
+      "threshold": 0.9,
+      "macro_f05": 0.8749,
+      "pair_precision": 0.9832,
+      "pair_recall": 0.7401,
+      "singleton_accuracy": 1.0
+    },
+    {
+      "threshold": 0.92,
+      "macro_f05": 0.8664,
+      "pair_precision": 0.9844,
+      "pair_recall": 0.7246,
+      "singleton_accuracy": 1.0
+    },
+    {
+      "threshold": 0.95,
+      "macro_f05": 0.8442,
+      "pair_precision": 0.9884,
+      "pair_recall": 0.6833,
+      "singleton_accuracy": 1.0
+    },
+    {
+      "threshold": 0.97,
+      "macro_f05": 0.8134,
+      "pair_precision": 0.991,
+      "pair_recall": 0.6311,
+      "singleton_accuracy": 1.0
+    },
+    {
+      "threshold": 0.98,
+      "macro_f05": 0.7894,
+      "pair_precision": 0.9971,
+      "pair_recall": 0.5955,
+      "singleton_accuracy": 1.0
+    },
+    {
+      "threshold": 0.99,
+      "macro_f05": 0.7389,
+      "pair_precision": 0.9978,
+      "pair_recall": 0.5284,
+      "singleton_accuracy": 1.0
+    }
+  ]
+}
