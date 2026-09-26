@@ -6,8 +6,8 @@
     "platform": "Windows-11-10.0.26200-SP0",
     "python_version": "3.13.14",
     "random_seed": 42,
-    "training_time_seconds": 0.69,
-    "best_iteration": 87
+    "training_time_seconds": 1.81,
+    "best_iteration": 300
   },
   "hyperparameters": {
     "learning_rate": 0.05,
@@ -17,76 +17,76 @@
     "n_jobs": 4
   },
   "data_summary": {
-    "total_pairs": 7653,
-    "train_pairs": 6509,
-    "val_pairs": 1144,
-    "total_s1_queries": 500
+    "total_pairs": 22955,
+    "train_pairs": 19549,
+    "val_pairs": 3406,
+    "total_s1_queries": 1500
   },
   "validation_split_metrics": {
-    "roc_auc": 0.9877,
-    "pr_auc": 0.9602,
-    "log_loss": 0.1178
+    "roc_auc": 0.9956,
+    "pr_auc": 0.9845,
+    "log_loss": 0.0679
   },
   "top_features": [
     [
-      "name_rapidfuzz_token_sort",
-      201
-    ],
-    [
-      "address_numeric_match",
-      188
-    ],
-    [
-      "address_token_containment",
-      166
-    ],
-    [
-      "name_rapidfuzz_token_set",
-      162
-    ],
-    [
-      "name_rapidfuzz_ratio",
-      144
-    ],
-    [
-      "address_rapidfuzz_token_set",
-      136
-    ],
-    [
       "name_len_ratio",
-      121
-    ],
-    [
-      "name_len_diff",
-      118
-    ],
-    [
-      "name_sequence_ratio",
-      117
-    ],
-    [
-      "address_len_ratio",
-      113
-    ],
-    [
-      "name_jaccard_3gram",
-      112
+      620
     ],
     [
       "address_jaccard_3gram",
-      106
+      589
     ],
     [
-      "retrieval_rank",
-      104
+      "address_rapidfuzz_token_set",
+      542
     ],
     [
-      "name_jaccard_token",
-      88
+      "address_len_ratio",
+      537
+    ],
+    [
+      "name_jaccard_3gram",
+      529
+    ],
+    [
+      "name_len_diff",
+      493
+    ],
+    [
+      "name_rapidfuzz_token_sort",
+      424
+    ],
+    [
+      "name_rapidfuzz_token_set",
+      411
+    ],
+    [
+      "address_token_containment",
+      406
+    ],
+    [
+      "address_numeric_match",
+      364
+    ],
+    [
+      "name_rapidfuzz_ratio",
+      343
     ],
     [
       "address_jaccard_token",
-      88
+      318
+    ],
+    [
+      "address_rapidfuzz_ratio",
+      314
+    ],
+    [
+      "name_jaccard_token",
+      289
+    ],
+    [
+      "address_len_diff",
+      289
     ]
   ]
 }

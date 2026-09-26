@@ -62,63 +62,75 @@ def hydrate_target_records(
     """Stream Source 2 and Source 3 to hydrate candidate entity records."""
     target_records: dict[str, dict[str, str]] = {}
 
-    # Check cache
+    # Check cache and load available records
     if cache_path and Path(cache_path).exists():
-        logging.info(f"Loading cached target records from {cache_path}...")
         try:
             with open(cache_path, "r", encoding="utf-8") as f:
                 cached = json.load(f)
-            # Check if all needed target_ids are cached
-            if target_ids.issubset(cached.keys()):
-                logging.info(f"All {len(target_ids)} target records loaded from cache.")
-                return {tid: cached[tid] for tid in target_ids}
+            found_cached = 0
+            for tid in target_ids:
+                if tid in cached:
+                    target_records[tid] = cached[tid]
+                    found_cached += 1
+            logging.info(f"Loaded {found_cached}/{len(target_ids)} target records from cache {cache_path}")
+            if len(target_records) == len(target_ids):
+                return target_records
         except Exception as e:
             logging.warning(f"Failed to read cache {cache_path}: {e}")
 
-    s2_needed = {tid for tid in target_ids if tid.startswith("S2-")}
-    s3_needed = {tid for tid in target_ids if tid.startswith("S3-")}
+    s2_needed = {tid for tid in target_ids if tid.startswith("S2-") and tid not in target_records}
+    s3_needed = {tid for tid in target_ids if tid.startswith("S3-") and tid not in target_records}
 
-    logging.info(f"Hydrating {len(s2_needed)} S2 records from {s2_path}...")
-    for chunk in read_tsv_chunks(s2_path, "source2", chunk_size=200_000):
-        for row in chunk.itertuples(index=False):
-            eid = str(row.entity_id).strip()
-            if eid in s2_needed:
-                target_records[eid] = {
-                    "id": eid,
-                    "name": str(row.business_name).strip() if pd.notna(row.business_name) else "",
-                    "addr": str(row.business_address).strip() if pd.notna(row.business_address) else "",
-                    "country": str(row.country).strip() if pd.notna(row.country) else "",
-                }
-                if len(target_records) == len(s2_needed):
-                    break
-        if len(target_records) == len(s2_needed):
-            break
+    if s2_needed:
+        logging.info(f"Hydrating {len(s2_needed)} remaining S2 records from {s2_path}...")
+        s2_found = 0
+        for chunk in read_tsv_chunks(s2_path, "source2", chunk_size=200_000):
+            for row in chunk.itertuples(index=False):
+                eid = str(row.entity_id).strip()
+                if eid in s2_needed:
+                    target_records[eid] = {
+                        "id": eid,
+                        "name": str(row.business_name).strip() if pd.notna(row.business_name) else "",
+                        "addr": str(row.business_address).strip() if pd.notna(row.business_address) else "",
+                        "country": str(row.country).strip() if pd.notna(row.country) else "",
+                    }
+                    s2_found += 1
+                    if s2_found == len(s2_needed):
+                        break
+            if s2_found == len(s2_needed):
+                break
 
-    logging.info(f"Hydrating {len(s3_needed)} S3 records from {s3_path}...")
-    s3_found = 0
-    for chunk in read_tsv_chunks(s3_path, "source3", chunk_size=200_000):
-        for row in chunk.itertuples(index=False):
-            eid = str(row.entity_id).strip()
-            if eid in s3_needed:
-                target_records[eid] = {
-                    "id": eid,
-                    "name": str(row.business_name).strip() if pd.notna(row.business_name) else "",
-                    "addr": str(row.business_address).strip() if pd.notna(row.business_address) else "",
-                    "country": str(row.country).strip() if pd.notna(row.country) else "",
-                }
-                s3_found += 1
-                if s3_found == len(s3_needed):
-                    break
-        if s3_found == len(s3_needed):
-            break
+    if s3_needed:
+        logging.info(f"Hydrating {len(s3_needed)} remaining S3 records from {s3_path}...")
+        s3_found = 0
+        for chunk in read_tsv_chunks(s3_path, "source3", chunk_size=200_000):
+            for row in chunk.itertuples(index=False):
+                eid = str(row.entity_id).strip()
+                if eid in s3_needed:
+                    target_records[eid] = {
+                        "id": eid,
+                        "name": str(row.business_name).strip() if pd.notna(row.business_name) else "",
+                        "addr": str(row.business_address).strip() if pd.notna(row.business_address) else "",
+                        "country": str(row.country).strip() if pd.notna(row.country) else "",
+                    }
+                    s3_found += 1
+                    if s3_found == len(s3_needed):
+                        break
+            if s3_found == len(s3_needed):
+                break
 
     logging.info(f"Hydrated total {len(target_records)} target records.")
 
     if cache_path:
         try:
+            full_cache = {}
+            if Path(cache_path).exists():
+                with open(cache_path, "r", encoding="utf-8") as f:
+                    full_cache = json.load(f)
+            full_cache.update(target_records)
             with open(cache_path, "w", encoding="utf-8") as f:
-                json.dump(target_records, f)
-            logging.info(f"Saved hydrated records cache to {cache_path}")
+                json.dump(full_cache, f)
+            logging.info(f"Updated hydrated records cache at {cache_path} (total cached: {len(full_cache)})")
         except Exception as e:
             logging.warning(f"Could not save cache to {cache_path}: {e}")
 
