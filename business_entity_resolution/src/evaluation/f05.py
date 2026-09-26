@@ -258,3 +258,32 @@ class MacroF05Evaluator:
             "diagnostic_strata": diagnostic_strata,
             "violations_sample": candidate_subset_violations[:10],
         }
+
+    def evaluate_complete_prediction_map(
+        self,
+        predictions: dict[str, list[str]],
+        candidates: dict[str, list[str]] | None = None,
+        sample_metadata: list[dict[str, Any]] | None = None,
+        expected_entity_ids: set[str] | None = None,
+    ) -> dict[str, Any]:
+        """Evaluate only after enforcing exactly one prediction row per S1.
+
+        Matcher output should include every validation S1, using an empty list
+        for a predicted singleton.  Requiring complete key coverage prevents a
+        model from inflating macro-F0.5 by omitting difficult entities.
+        """
+        expected = set(self.gt_map) if expected_entity_ids is None else set(expected_entity_ids)
+        actual = set(predictions)
+        missing = sorted(expected - actual)
+        unexpected = sorted(actual - expected)
+        if missing or unexpected:
+            raise ValueError(
+                "Prediction map must contain exactly the expected Source 1 IDs; "
+                f"missing={len(missing)}, unexpected={len(unexpected)}, "
+                f"missing_sample={missing[:5]}, unexpected_sample={unexpected[:5]}"
+            )
+        return self.evaluate(
+            predictions=predictions,
+            candidates=candidates,
+            sample_metadata=sample_metadata,
+        )
