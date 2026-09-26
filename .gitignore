@@ -15,4 +15,8 @@ output/*.tsv
 
 experiments/*.csv
 
+output/models/*.joblib
+output/models/cached_*.json
+output/models/train_pairs.csv
+
 .ipynb_checkpoints/
