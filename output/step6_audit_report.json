@@ -1,0 +1,550 @@
+{
+    "set_size": 963,
+    "total_true_pairs": 2836,
+    "group_i_audit": {
+        "selected": 0,
+        "zeros": 0,
+        "ones": 0,
+        "avg": 0
+    },
+    "fixed_budgets": {
+        "B_256": {
+            "metrics": {
+                "total_found": 2714,
+                "s1_full_matches": 709
+            },
+            "group_recalls": {
+                "A_Random": {
+                    "found": 1703,
+                    "total": 1778
+                },
+                "B_Zero": {
+                    "found": 0,
+                    "total": 0
+                },
+                "C_One": {
+                    "found": 139,
+                    "total": 150
+                },
+                "D_Multi": {
+                    "found": 458,
+                    "total": 475
+                },
+                "E_5Plus": {
+                    "found": 802,
+                    "total": 836
+                },
+                "F_10_11": {
+                    "found": 116,
+                    "total": 122
+                },
+                "G_Similar": {
+                    "found": 574,
+                    "total": 595
+                },
+                "H_Short": {
+                    "found": 475,
+                    "total": 497
+                },
+                "I_MissingAddr": {
+                    "found": 0,
+                    "total": 0
+                },
+                "J_Lexical": {
+                    "found": 578,
+                    "total": 609
+                }
+            },
+            "cand_stats": {
+                "A_Random": {
+                    "mean": 256.0,
+                    "median": 256.0,
+                    "p95": 256.0,
+                    "p99": 256.0,
+                    "max": 256.0,
+                    "total": 128000
+                },
+                "B_Zero": {
+                    "mean": 256.0,
+                    "median": 256.0,
+                    "p95": 256.0,
+                    "p99": 256.0,
+                    "max": 256.0,
+                    "total": 38400
+                },
+                "C_One": {
+                    "mean": 256.0,
+                    "median": 256.0,
+                    "p95": 256.0,
+                    "p99": 256.0,
+                    "max": 256.0,
+                    "total": 38400
+                },
+                "D_Multi": {
+                    "mean": 256.0,
+                    "median": 256.0,
+                    "p95": 256.0,
+                    "p99": 256.0,
+                    "max": 256.0,
+                    "total": 38400
+                },
+                "E_5Plus": {
+                    "mean": 256.0,
+                    "median": 256.0,
+                    "p95": 256.0,
+                    "p99": 256.0,
+                    "max": 256.0,
+                    "total": 38400
+                },
+                "F_10_11": {
+                    "mean": 256.0,
+                    "median": 256.0,
+                    "p95": 256.0,
+                    "p99": 256.0,
+                    "max": 256.0,
+                    "total": 3072
+                },
+                "G_Similar": {
+                    "mean": 256.0,
+                    "median": 256.0,
+                    "p95": 256.0,
+                    "p99": 256.0,
+                    "max": 256.0,
+                    "total": 38400
+                },
+                "H_Short": {
+                    "mean": 256.0,
+                    "median": 256.0,
+                    "p95": 256.0,
+                    "p99": 256.0,
+                    "max": 256.0,
+                    "total": 32000
+                },
+                "J_Lexical": {
+                    "mean": 256.0,
+                    "median": 256.0,
+                    "p95": 256.0,
+                    "p99": 256.0,
+                    "max": 256.0,
+                    "total": 38400
+                },
+                "overall": {
+                    "mean": 256.0,
+                    "median": 256.0,
+                    "p95": 256.0,
+                    "p99": 256.0,
+                    "max": 256.0,
+                    "total": 246528
+                }
+            }
+        },
+        "B_512": {
+            "metrics": {
+                "total_found": 2730,
+                "s1_full_matches": 720
+            },
+            "group_recalls": {
+                "A_Random": {
+                    "found": 1713,
+                    "total": 1778
+                },
+                "B_Zero": {
+                    "found": 0,
+                    "total": 0
+                },
+                "C_One": {
+                    "found": 142,
+                    "total": 150
+                },
+                "D_Multi": {
+                    "found": 462,
+                    "total": 475
+                },
+                "E_5Plus": {
+                    "found": 806,
+                    "total": 836
+                },
+                "F_10_11": {
+                    "found": 118,
+                    "total": 122
+                },
+                "G_Similar": {
+                    "found": 576,
+                    "total": 595
+                },
+                "H_Short": {
+                    "found": 476,
+                    "total": 497
+                },
+                "I_MissingAddr": {
+                    "found": 0,
+                    "total": 0
+                },
+                "J_Lexical": {
+                    "found": 586,
+                    "total": 609
+                }
+            },
+            "cand_stats": {
+                "A_Random": {
+                    "mean": 512.0,
+                    "median": 512.0,
+                    "p95": 512.0,
+                    "p99": 512.0,
+                    "max": 512.0,
+                    "total": 256000
+                },
+                "B_Zero": {
+                    "mean": 512.0,
+                    "median": 512.0,
+                    "p95": 512.0,
+                    "p99": 512.0,
+                    "max": 512.0,
+                    "total": 76800
+                },
+                "C_One": {
+                    "mean": 512.0,
+                    "median": 512.0,
+                    "p95": 512.0,
+                    "p99": 512.0,
+                    "max": 512.0,
+                    "total": 76800
+                },
+                "D_Multi": {
+                    "mean": 512.0,
+                    "median": 512.0,
+                    "p95": 512.0,
+                    "p99": 512.0,
+                    "max": 512.0,
+                    "total": 76800
+                },
+                "E_5Plus": {
+                    "mean": 512.0,
+                    "median": 512.0,
+                    "p95": 512.0,
+                    "p99": 512.0,
+                    "max": 512.0,
+                    "total": 76800
+                },
+                "F_10_11": {
+                    "mean": 512.0,
+                    "median": 512.0,
+                    "p95": 512.0,
+                    "p99": 512.0,
+                    "max": 512.0,
+                    "total": 6144
+                },
+                "G_Similar": {
+                    "mean": 512.0,
+                    "median": 512.0,
+                    "p95": 512.0,
+                    "p99": 512.0,
+                    "max": 512.0,
+                    "total": 76800
+                },
+                "H_Short": {
+                    "mean": 512.0,
+                    "median": 512.0,
+                    "p95": 512.0,
+                    "p99": 512.0,
+                    "max": 512.0,
+                    "total": 64000
+                },
+                "J_Lexical": {
+                    "mean": 512.0,
+                    "median": 512.0,
+                    "p95": 512.0,
+                    "p99": 512.0,
+                    "max": 512.0,
+                    "total": 76800
+                },
+                "overall": {
+                    "mean": 512.0,
+                    "median": 512.0,
+                    "p95": 512.0,
+                    "p99": 512.0,
+                    "max": 512.0,
+                    "total": 493056
+                }
+            }
+        },
+        "B_1024": {
+            "metrics": {
+                "total_found": 2747,
+                "s1_full_matches": 735
+            },
+            "group_recalls": {
+                "A_Random": {
+                    "found": 1726,
+                    "total": 1778
+                },
+                "B_Zero": {
+                    "found": 0,
+                    "total": 0
+                },
+                "C_One": {
+                    "found": 145,
+                    "total": 150
+                },
+                "D_Multi": {
+                    "found": 465,
+                    "total": 475
+                },
+                "E_5Plus": {
+                    "found": 809,
+                    "total": 836
+                },
+                "F_10_11": {
+                    "found": 118,
+                    "total": 122
+                },
+                "G_Similar": {
+                    "found": 579,
+                    "total": 595
+                },
+                "H_Short": {
+                    "found": 477,
+                    "total": 497
+                },
+                "I_MissingAddr": {
+                    "found": 0,
+                    "total": 0
+                },
+                "J_Lexical": {
+                    "found": 590,
+                    "total": 609
+                }
+            },
+            "cand_stats": {
+                "A_Random": {
+                    "mean": 1024.0,
+                    "median": 1024.0,
+                    "p95": 1024.0,
+                    "p99": 1024.0,
+                    "max": 1024.0,
+                    "total": 512000
+                },
+                "B_Zero": {
+                    "mean": 1024.0,
+                    "median": 1024.0,
+                    "p95": 1024.0,
+                    "p99": 1024.0,
+                    "max": 1024.0,
+                    "total": 153600
+                },
+                "C_One": {
+                    "mean": 1024.0,
+                    "median": 1024.0,
+                    "p95": 1024.0,
+                    "p99": 1024.0,
+                    "max": 1024.0,
+                    "total": 153600
+                },
+                "D_Multi": {
+                    "mean": 1024.0,
+                    "median": 1024.0,
+                    "p95": 1024.0,
+                    "p99": 1024.0,
+                    "max": 1024.0,
+                    "total": 153600
+                },
+                "E_5Plus": {
+                    "mean": 1024.0,
+                    "median": 1024.0,
+                    "p95": 1024.0,
+                    "p99": 1024.0,
+                    "max": 1024.0,
+                    "total": 153600
+                },
+                "F_10_11": {
+                    "mean": 1024.0,
+                    "median": 1024.0,
+                    "p95": 1024.0,
+                    "p99": 1024.0,
+                    "max": 1024.0,
+                    "total": 12288
+                },
+                "G_Similar": {
+                    "mean": 1024.0,
+                    "median": 1024.0,
+                    "p95": 1024.0,
+                    "p99": 1024.0,
+                    "max": 1024.0,
+                    "total": 153600
+                },
+                "H_Short": {
+                    "mean": 1024.0,
+                    "median": 1024.0,
+                    "p95": 1024.0,
+                    "p99": 1024.0,
+                    "max": 1024.0,
+                    "total": 128000
+                },
+                "J_Lexical": {
+                    "mean": 1024.0,
+                    "median": 1024.0,
+                    "p95": 1024.0,
+                    "p99": 1024.0,
+                    "max": 1024.0,
+                    "total": 153600
+                },
+                "overall": {
+                    "mean": 1024.0,
+                    "median": 1024.0,
+                    "p95": 1024.0,
+                    "p99": 1024.0,
+                    "max": 1024.0,
+                    "total": 986112
+                }
+            }
+        }
+    },
+    "adaptive": {
+        "expansion_counts": {
+            "at_256": 681,
+            "at_512": 282,
+            "at_1024": 0
+        },
+        "expansion_yield": 0.011627906976744186,
+        "unproductive_expansion_rate": 0.9883720930232558,
+        "metrics": {
+            "total_found": 2717,
+            "s1_full_matches": 711
+        },
+        "group_recalls": {
+            "A_Random": {
+                "found": 1703,
+                "total": 1778
+            },
+            "B_Zero": {
+                "found": 0,
+                "total": 0
+            },
+            "C_One": {
+                "found": 139,
+                "total": 150
+            },
+            "D_Multi": {
+                "found": 458,
+                "total": 475
+            },
+            "E_5Plus": {
+                "found": 803,
+                "total": 836
+            },
+            "F_10_11": {
+                "found": 116,
+                "total": 122
+            },
+            "G_Similar": {
+                "found": 576,
+                "total": 595
+            },
+            "H_Short": {
+                "found": 476,
+                "total": 497
+            },
+            "I_MissingAddr": {
+                "found": 0,
+                "total": 0
+            },
+            "J_Lexical": {
+                "found": 578,
+                "total": 609
+            }
+        },
+        "cand_stats": {
+            "A_Random": {
+                "mean": 292.352,
+                "median": 256.0,
+                "p95": 512.0,
+                "p99": 512.0,
+                "max": 512.0,
+                "total": 146176
+            },
+            "B_Zero": {
+                "mean": 296.96,
+                "median": 256.0,
+                "p95": 512.0,
+                "p99": 512.0,
+                "max": 512.0,
+                "total": 44544
+            },
+            "C_One": {
+                "mean": 286.72,
+                "median": 256.0,
+                "p95": 512.0,
+                "p99": 512.0,
+                "max": 512.0,
+                "total": 43008
+            },
+            "D_Multi": {
+                "mean": 288.4266666666667,
+                "median": 256.0,
+                "p95": 512.0,
+                "p99": 512.0,
+                "max": 512.0,
+                "total": 43264
+            },
+            "E_5Plus": {
+                "mean": 296.96,
+                "median": 256.0,
+                "p95": 512.0,
+                "p99": 512.0,
+                "max": 512.0,
+                "total": 44544
+            },
+            "F_10_11": {
+                "mean": 277.3333333333333,
+                "median": 256.0,
+                "p95": 371.1999999999998,
+                "p99": 483.84000000000015,
+                "max": 512.0,
+                "total": 3328
+            },
+            "G_Similar": {
+                "mean": 424.96,
+                "median": 512.0,
+                "p95": 512.0,
+                "p99": 512.0,
+                "max": 512.0,
+                "total": 63744
+            },
+            "H_Short": {
+                "mean": 512.0,
+                "median": 512.0,
+                "p95": 512.0,
+                "p99": 512.0,
+                "max": 512.0,
+                "total": 64000
+            },
+            "J_Lexical": {
+                "mean": 295.25333333333333,
+                "median": 256.0,
+                "p95": 512.0,
+                "p99": 512.0,
+                "max": 512.0,
+                "total": 44288
+            },
+            "overall": {
+                "mean": 330.9657320872274,
+                "median": 256.0,
+                "p95": 512.0,
+                "p99": 512.0,
+                "max": 512.0,
+                "total": 318720
+            }
+        }
+    },
+    "budget_casualties_ranks": {
+        "257-512": 13,
+        "513-1024": 17,
+        "1025-2048": 16,
+        "2049-10000": 45
+    },
+    "block_failures_categories": {
+        "severe_name_mutation": 7,
+        "other": 3,
+        "missing_address": 18
+    }
+}

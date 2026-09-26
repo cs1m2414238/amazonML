@@ -1,0 +1,64 @@
+project:
+  name: amazon_business_entity_resolution
+  random_seed: 42
+
+data:
+  # Resolved relative to the project root. Override with AMAZON_ML_DATA_ROOT.
+  root: "../student_resource"
+
+  train:
+    source1: "dataset/train/train_source1.tsv"
+    source2: "dataset/train/train_source2.tsv"
+    source3: "dataset/train/train_source3.tsv"
+    ground_truth: "dataset/train/train_ground_truth.tsv"
+
+  test:
+    source1: "dataset/test/test_source1.tsv"
+    source2: "dataset/test/test_source2.tsv"
+    source3: "dataset/test/test_source3.tsv"
+
+output:
+  # Override with AMAZON_ML_OUTPUT_ROOT for large SSD-backed artifacts.
+  directory: "output"
+
+retrieval:
+  budgets: [16, 32, 64, 128, 256]
+  default_budget: 64
+  high_df_threshold: 50000
+  experiment_sample_size: 2000
+  matching_results: "matching_results.tsv"
+  candidate_pairs: "candidate_pairs.tsv"
+  name:
+    token: true
+    character_ngram: true
+  address:
+    token: true
+    character_ngram: true
+  country_aware: true
+  optimized:
+    posting_cache_mb: 1024
+    sqlite_cache_mb: 512
+    mmap_mb: 8192
+
+features:
+  name: true
+  address: true
+  country: true
+  retrieval: true
+  missing_fields: true
+
+model:
+  type: "lightgbm"
+  hard_negative_mining: true
+  calibration: true
+  deep_verification:
+    enabled: false
+
+evaluation:
+  validation_fraction: 0.2
+  random_seed: 42
+  metric: "macro_f0.5_per_source1"
+
+runtime:
+  chunk_size: 100000
+  workers: 4

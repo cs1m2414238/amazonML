@@ -1,0 +1,102 @@
+{
+    "train": {
+        "ground_truth": {
+            "total_rows": 2206821,
+            "zero_matches": 123247,
+            "one_match": 119157,
+            "more_than_one_match": 1964417,
+            "total_matched_pairs": 7638365,
+            "max_matches": 11,
+            "invalid_s1_prefix": 0,
+            "invalid_matched_prefix": 0,
+            "s1_in_matched": 0,
+            "intra_row_duplicates": 0
+        },
+        "source1": {
+            "total_rows": 2206821,
+            "missing_business_name": 0,
+            "missing_business_address": 0,
+            "missing_country": 0,
+            "invalid_prefix_count": 0,
+            "duplicate_rows": 0,
+            "country_distribution": {
+                "US": 1323633,
+                "India": 883188
+            }
+        },
+        "source2": {
+            "total_rows": 5034616,
+            "missing_business_name": 0,
+            "missing_business_address": 168967,
+            "missing_country": 0,
+            "invalid_prefix_count": 0,
+            "duplicate_rows": 0,
+            "country_distribution": {
+                "US": 3016817,
+                "India": 2017799
+            }
+        },
+        "source3": {
+            "total_rows": 5285603,
+            "missing_business_name": 0,
+            "missing_business_address": 175916,
+            "missing_country": 0,
+            "invalid_prefix_count": 0,
+            "duplicate_rows": 0,
+            "country_distribution": {
+                "US": 3170056,
+                "India": 2115547
+            }
+        }
+    },
+    "test": {
+        "source1": {
+            "total_rows": 1732544,
+            "missing_business_name": 0,
+            "missing_business_address": 0,
+            "missing_country": 0,
+            "invalid_prefix_count": 0,
+            "duplicate_rows": 0,
+            "country_distribution": {
+                "India": 809986,
+                "US": 663106,
+                "France": 259452
+            }
+        },
+        "source2": {
+            "total_rows": 4887273,
+            "missing_business_name": 0,
+            "missing_business_address": 129408,
+            "missing_country": 0,
+            "invalid_prefix_count": 0,
+            "duplicate_rows": 0,
+            "country_distribution": {
+                "India": 2312565,
+                "US": 1871330,
+                "France": 703378
+            }
+        },
+        "source3": {
+            "total_rows": 5082316,
+            "missing_business_name": 0,
+            "missing_business_address": 136098,
+            "missing_country": 0,
+            "invalid_prefix_count": 0,
+            "duplicate_rows": 0,
+            "country_distribution": {
+                "India": 2405000,
+                "US": 1945701,
+                "France": 731615
+            }
+        }
+    },
+    "cross_file_consistency": {
+        "missing_s1_in_train_source1": 0,
+        "missing_s2_in_train_source2": 0,
+        "missing_s3_in_train_source3": 0
+    },
+    "metadata": {
+        "validation_runtime_seconds": 64.65,
+        "peak_memory_mb": 1000.89
+    }
+}

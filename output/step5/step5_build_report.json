@@ -1,0 +1,45 @@
+{
+    "build_time_seconds": 773.06,
+    "total_records_indexed": 10320219,
+    "records_per_second": 13349.87,
+    "peak_rss_mb": 1348.17,
+    "index_disk_size_mb": 3311.45,
+    "unique_key_counts": {
+        "name_tokens": 1421041,
+        "name_ngrams": 55507,
+        "address_tokens": 737245,
+        "address_ngrams": 33963
+    },
+    "largest_posting_lists": {
+        "name_tokens": [
+            672782,
+            "and"
+        ],
+        "name_ngrams": [
+            1754640,
+            "ate"
+        ],
+        "address_tokens": [
+            1942919,
+            "road"
+        ],
+        "address_ngrams": [
+            1996288,
+            " no"
+        ]
+    },
+    "missing_value_statistics": {
+        "business_name": {
+            "raw_missing": 24,
+            "normalized_empty": 47
+        },
+        "business_address": {
+            "raw_missing": 344883,
+            "normalized_empty": 344883
+        },
+        "country": {
+            "raw_missing": 0,
+            "normalized_empty": 0
+        }
+    }
+}
