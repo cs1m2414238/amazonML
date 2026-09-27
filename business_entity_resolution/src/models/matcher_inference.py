@@ -61,7 +61,17 @@ class BatchMatcher:
             else:
                 self._predict_fn = lambda x: self.model.predict_proba(x)[:, 1]
 
-        logging.info(f"BatchMatcher initialized with {len(self.feature_names)} features, threshold={self.threshold}")
+        self.default_40 = [
+            "name_exact_match", "name_core_exact_match", "name_rapidfuzz_ratio", "name_rapidfuzz_token_sort", "name_rapidfuzz_token_set",
+            "name_jaccard_3gram", "name_jaccard_token", "name_token_containment", "name_sequence_ratio", "name_len_diff", "name_len_ratio", "name_tok_diff",
+            "address_exact_match", "address_core_exact_match", "address_rapidfuzz_ratio", "address_rapidfuzz_token_set", "address_jaccard_3gram", "address_jaccard_token",
+            "address_token_containment", "address_sequence_ratio", "address_numeric_match", "address_has_exact_number_match", "address_len_diff", "address_len_ratio", "address_tok_diff",
+            "country_match", "is_us", "is_india", "s1_missing_name", "s2_missing_name", "s1_missing_address", "s2_missing_address", "both_missing_address",
+            "retrieval_rank", "retrieval_reciprocal_rank", "retrieval_log_rank", "is_source3", "name_address_product", "name_address_min", "name_address_harmonic_mean"
+        ]
+        self._is_default_40 = list(self.feature_names) == self.default_40
+
+        logging.info(f"BatchMatcher initialized with {len(self.feature_names)} features (fast_vector={self._is_default_40}), threshold={self.threshold}")
 
     def score_pairs_batch(
         self,
@@ -99,23 +109,33 @@ class BatchMatcher:
         if not pair_tasks:
             return results
 
+        # Pre-prepare records once per unique record in the batch
+        prep_s1 = {eid: self.feat_gen.prepare_record(r) for eid, r in s1_map.items()}
+        prep_cands = {cid: self.feat_gen.prepare_record(r) for cid, r in candidate_records.items()}
+        default_cand = self.feat_gen.prepare_record({"id": "", "name": "", "addr": "", "country": ""})
+
+        use_fast_vec = self._is_default_40
+
         # Process in bounded chunks
         for start_idx in range(0, len(pair_tasks), batch_size):
             chunk = pair_tasks[start_idx : start_idx + batch_size]
             features_list: list[list[float]] = []
 
-            for s1_id, cand_id, rank in chunk:
-                s1_info = s1_map[s1_id]
-                cand_info = candidate_records.get(cand_id, {"id": cand_id, "name": "", "addr": "", "country": ""})
-                target_src = "source3" if cand_id.startswith("S3-") else "source2"
-
-                feat_dict = self.feat_gen.compute_features(
-                    s1_dict=s1_info,
-                    s2_dict=cand_info,
-                    retrieval_rank=rank,
-                    target_source=target_src,
-                )
-                features_list.append([feat_dict[f] for f in self.feature_names])
+            if use_fast_vec:
+                for s1_id, cand_id, rank in chunk:
+                    p1 = prep_s1[s1_id]
+                    p2 = prep_cands.get(cand_id, default_cand)
+                    target_src = "source3" if cand_id.startswith("S3-") else "source2"
+                    features_list.append(
+                        self.feat_gen.compute_feature_vector_from_prepared(p1, p2, rank, target_src)
+                    )
+            else:
+                for s1_id, cand_id, rank in chunk:
+                    p1 = prep_s1[s1_id]
+                    p2 = prep_cands.get(cand_id, default_cand)
+                    target_src = "source3" if cand_id.startswith("S3-") else "source2"
+                    feat_dict = self.feat_gen.compute_features_from_prepared(p1, p2, rank, target_src)
+                    features_list.append([feat_dict[f] for f in self.feature_names])
 
             X_chunk = np.array(features_list, dtype=np.float32)
             probs = self._predict_fn(X_chunk)

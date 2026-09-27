@@ -55,7 +55,9 @@ class SPIMIIndexer:
                     doc_id INTEGER PRIMARY KEY,
                     entity_id TEXT,
                     source TEXT,
-                    country TEXT
+                    country TEXT,
+                    name TEXT,
+                    addr TEXT
                 )
             """)
             
@@ -109,7 +111,9 @@ class SPIMIIndexer:
                 if not norm_country: self.missing_stats["country"]["normalized_empty"] += 1
 
                 # Routing to DB
-                docs_to_insert.append((doc_id, row.entity_id, source_name, norm_country))
+                raw_name = "" if is_missing(row.business_name) else str(row.business_name).strip()
+                raw_addr = "" if is_missing(row.business_address) else str(row.business_address).strip()
+                docs_to_insert.append((doc_id, str(row.entity_id).strip(), source_name, norm_country, raw_name, raw_addr))
                 
                 # Tokenization & N-grams (Using sets per document to prevent duplicate postings)
                 tokens_name = set(norm_name_core.split()) if norm_name_core else set()
@@ -124,7 +128,7 @@ class SPIMIIndexer:
                 for t in ngrams_addr: local_idx[3][t].add(doc_id)
                 
             # Flush documents to DB
-            conn.executemany("INSERT INTO documents VALUES (?, ?, ?, ?)", docs_to_insert)
+            conn.executemany("INSERT INTO documents VALUES (?, ?, ?, ?, ?, ?)", docs_to_insert)
             conn.commit()
             
             # Distribute local_idx to shard files
@@ -215,6 +219,8 @@ class SPIMIIndexer:
             # Delete shard file to save disk space
             shard_path.unlink()
             
+        logging.info("Creating index on documents(entity_id)...")
+        conn.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_documents_entity_id ON documents(entity_id)")
         conn.commit()
         conn.close()
         
