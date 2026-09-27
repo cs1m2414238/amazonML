@@ -214,7 +214,7 @@ class ParallelResumableRetriever:
             json.dumps(manifest, sort_keys=True, indent=2) + "\n",
         )
 
-    def _prepare_manifest(self, settings: RunSettings, run_signature: str) -> dict:
+    def _prepare_manifest(self, settings: RunSettings, run_signature: str) -> tuple[dict, str]:
         self.run_directory.mkdir(parents=True, exist_ok=True)
         self.parts_directory.mkdir(parents=True, exist_ok=True)
         expected = {
@@ -225,11 +225,23 @@ class ParallelResumableRetriever:
         if self.manifest_path.exists():
             existing = json.loads(self.manifest_path.read_text(encoding="utf-8"))
             if existing.get("run_signature") != run_signature:
-                raise ValueError(
-                    "Existing run directory belongs to different retrieval settings: "
-                    f"{self.run_directory}"
-                )
-            return existing
+                # Check if data settings match (everything except workers)
+                existing_settings = existing.get("settings", {})
+                current_settings = asdict(settings)
+                data_keys = ("batch_size", "budget", "dataset_signature", "total_batches", "total_records", "worker")
+                data_matches = all(existing_settings.get(k) == current_settings.get(k) for k in data_keys)
+                if data_matches:
+                    # Safe resumption: preserve existing run_signature so that all existing parts remain valid
+                    run_signature = existing["run_signature"]
+                    existing["settings"]["workers"] = settings.workers
+                    self._write_manifest(existing)
+                    return existing, run_signature
+                else:
+                    raise ValueError(
+                        "Existing run directory belongs to different retrieval settings: "
+                        f"{self.run_directory}"
+                    )
+            return existing, run_signature
         expected.update(
             {
                 "status": "running",
@@ -238,7 +250,7 @@ class ParallelResumableRetriever:
             }
         )
         self._write_manifest(expected)
-        return expected
+        return expected, run_signature
 
     def run(
         self,
@@ -259,7 +271,7 @@ class ParallelResumableRetriever:
             raise ValueError("budget must be positive")
 
         run_signature = self._run_signature(settings)
-        manifest = self._prepare_manifest(settings, run_signature)
+        manifest, run_signature = self._prepare_manifest(settings, run_signature)
         completed_meta = {
             batch_id: metadata
             for batch_id in range(settings.total_batches)
