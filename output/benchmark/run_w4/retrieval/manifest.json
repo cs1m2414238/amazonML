@@ -1,0 +1,22 @@
+{
+  "completed_batches": 9,
+  "completed_records": 500,
+  "manifest_version": 1,
+  "run_signature": "bb6dbde745383cc617ccb226a9e535944fcdb38d8aaa745223893f9e1d334a29",
+  "settings": {
+    "batch_size": 62,
+    "budget": 64,
+    "dataset_signature": "test_s1_500",
+    "total_batches": 9,
+    "total_records": 500,
+    "worker": {
+      "db_path": "H:\\Amazon_ML_Work\\output\\test_index\\indices.db",
+      "high_df_threshold": 50000,
+      "mmap_mb": 8192,
+      "posting_cache_mb": 1024,
+      "sqlite_cache_mb": 512
+    },
+    "workers": 4
+  },
+  "status": "complete"
+}

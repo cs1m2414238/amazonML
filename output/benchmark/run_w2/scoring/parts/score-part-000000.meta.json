@@ -1,0 +1,8 @@
+{
+  "batch_id": 0,
+  "record_count": 500,
+  "candidate_total": 32000,
+  "matching_total": 1599,
+  "hydration_seconds": 2.2497810999921057,
+  "scoring_seconds": 31.724920599983307
+}

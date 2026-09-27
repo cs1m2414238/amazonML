@@ -1,0 +1,9 @@
+{
+  "batch_id": 6,
+  "candidate_total": 3968,
+  "first_entity_id": "S1-42502314",
+  "last_entity_id": "S1-829004597",
+  "payload_sha256": "82b2d6a8347c6cd53315e0e69d7e13ca95b65373f69299493ebcfda4c46aa8dc",
+  "record_count": 62,
+  "run_signature": "bb6dbde745383cc617ccb226a9e535944fcdb38d8aaa745223893f9e1d334a29"
+}
